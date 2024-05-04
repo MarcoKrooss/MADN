@@ -18,25 +18,25 @@ class Lobby {
 }
 
 function createLobby(id, name, password, status, players) {
-    let lobby = new Lobby(id, name, password, status, players)
+    return new Lobby(id, name, password, status, players);
 }
 
 function initPlayer() {
-
+    return new Player(id, name, playerCount, score);
 }
 
-function startGame() {
+// function hostGame() {
 
-}
+// }
 
-function switchPlayer() {
+// function switchPlayer() {
 
-}
+// }
 
 function roleDice() {
-    let dice = Math.ceil(Math.random() * 6);
+    return Math.ceil(Math.random() * 6);
 }
 
-function playerTurn() {
+// function playerTurn() {
 
-}
+// }
