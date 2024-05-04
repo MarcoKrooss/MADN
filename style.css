@@ -1,0 +1,7 @@
+body {}
+
+#board-game {
+    width: 750px;
+    height: 750px;
+    background: beige;
+}
