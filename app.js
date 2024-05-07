@@ -1,34 +1,50 @@
 class Player {
-    constructor(id, name, playerCount, score) {
+    constructor(id, name, figs, score) {
         this.id = id;
         this.name = name;
-        this.playerCount = playerCount;
+        this.figs = figs;
         this.score = score;
     }
 }
 
 class Lobby {
-    constructor(id, name, password, status, players) {
+    constructor(id, name, password, playerCount, status, maxPlayers) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.playerCount = playerCount;
         this.status = status;
-        this.players = players;
+        this.maxPlayers = maxPlayers;
     }
 }
 
-function createLobby(id, name, password, status, players) {
-    return new Lobby(id, name, password, status, players);
+class Figure {
+    constructor(id, player, position) {
+        this.id = id;
+        this.player = player;
+        this.position = position;
+    }
 }
 
-// createPlayer-Function | 
-function createPlayer(id, name, playerCount, score) {
-    return new Player(id, name, playerCount, score);
+function createLobby(id, name, password, playerCount, status, maxPlayers) {
+    return new Lobby(id, name, password, playerCount, status, maxPlayers);
 }
 
 function joinLobby(x, y) {
     //TODO: Implement lobby joining function
     //TODO: Player y should join Lobby x
+}
+
+function createPlayer(playerName) {
+    // Initialize blank player. Define ID when joining lobby
+    let player = new Player(undefined, playerName, [], 0);
+
+    // Give player 4 figures (ID: 0, 1, 2, 3)
+    for (let i = 0; i < 4; i++) {
+        player.figs.push(new Figure(i, player, 0));
+    }
+
+    return player;
 }
 
 function startGame() {
@@ -41,14 +57,11 @@ function switchPlayer() {
     //TODO: cycle through the player after each playerTurn()
 }
 
-function playerTurn() {
-    //TODO: player makes turn (role the dice, move player (automatically), if X then player gets 2nd turn)
-    let dice1 = roleDice();
-    let dice2 = roleDice();
+function playerTurn(player) {
+    //TODO: player makes turn (role the dice, move selected player (automatically), if 6 then player gets 2nd turn)
 }
 
 function roleDice() {
-    // random number 1 - 6
     return Math.ceil(Math.random() * 6);
 }
 
